@@ -2,24 +2,10 @@ import 'flowbite';
 import toast from 'react-hot-toast';
 import { IoReorderThree } from "react-icons/io5";
 import { Link, Outlet } from 'react-router-dom';
-import useAxiosPublic from '../hooks/useAxiosPublic';
-import { useQuery } from '@tanstack/react-query';
 
-const UserDashboard = () => {
-    const axiosPublic = useAxiosPublic();
-    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    // console.log(userInfo)
+const AgentDashboard = () => {
 
-    const { data: user } = useQuery({
-        queryKey: ["user"],
-        queryFn: async () => {
-            const res = await axiosPublic.get(`/user/${userInfo?.phone}`)
-            return res.data;
-        }
-    })
-    console.log(user)
-
-    const handleLogout = () => {
+    const handleLogout = ()=> {
         localStorage.removeItem("userInfo")
         localStorage.removeItem("access-token")
         toast.success("Successfully Logout");
@@ -27,7 +13,7 @@ const UserDashboard = () => {
     return (
         <div>
             <div className="text-center cursor-pointer" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
-                <IoReorderThree size={28} className=" " ></IoReorderThree>
+                <IoReorderThree size={28} className=" ml-11" ></IoReorderThree>
             </div>
 
 
@@ -41,21 +27,21 @@ const UserDashboard = () => {
                     {/* user Profile section / */}
 
 
-                    <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-rose-100 mx-auto mt-4 mb-7'>
-                        <Link to='/' className='flex justify-center items-center ' >
-                            <img
-                                // className='hidden md:block'
-                                src='https://i.ibb.co/xD2TrVn/z3376104only-T-removebg-preview.png'
-                                alt='logo'
-                                width='80'
-                                height='80'
-                            />
-                            <h2 className='text-[18px] font-bold hidden lg:flex leading-none dark:text-white' >B<span className='text-[#076aa5]' >Kash</span></h2>
+                        <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-rose-100 mx-auto mt-4 mb-7'>
+                            <Link to='/' className='flex justify-center items-center ' >
+                                <img
+                                    // className='hidden md:block'
+                                    src='https://i.ibb.co/xD2TrVn/z3376104only-T-removebg-preview.png'
+                                    alt='logo'
+                                    width='80'
+                                    height='80'
+                                />
+                                <h2 className='text-[18px] font-bold hidden lg:flex leading-none dark:text-white' >B<span className='text-[#076aa5]' >Kash</span></h2>
 
 
-                        </Link>
-                    </div>
-
+                            </Link>
+                        </div>
+                 
 
                     <ul className="space-y-2 font-medium">
                         <li>
@@ -67,63 +53,8 @@ const UserDashboard = () => {
                                 <span className="ms-3">Profile</span>
                             </a>
                         </li>
-
-                        {
-
-                            user?.role === "user" ? <>
-                                <li>
-                                    <a href="/dashboard/sendmoney" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                                            <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
-                                            <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
-                                        </svg>
-                                        <span className="ms-3">Send Money</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/dashboard/cashout" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                                            <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
-                                            <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
-                                        </svg>
-                                        <span className="ms-3">Cash Out</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="/dashboard/cashin" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                                            <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
-                                            <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
-                                        </svg>
-                                        <span className="ms-3">Cash In</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="/dashboard/history" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                                            <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
-                                            <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
-                                        </svg>
-                                        <span className="ms-3">Transiction History</span>
-                                    </a>
-                                </li>
-                            </> : user?.role === "agent" ?
-                                <li>
-                                    <a href="/dashboard/historyAgent" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                                            <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
-                                            <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
-                                        </svg>
-                                        <span className="ms-3">Transiction History</span>
-                                    </a>
-                                </li>
-                                :
-                                <li>admin dashboard</li>
-                        }
-
-
+                  
+                      
                         <li>
                             <a href="/dashboard/mybalance" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                 <svg className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
@@ -133,11 +64,19 @@ const UserDashboard = () => {
                                 <span className="ms-3">My Balance</span>
                             </a>
                         </li>
-
-
-
-
-
+                      
+                        <li>
+                            <a href="/dashboard/historyAgent" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                <svg className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
+                                    <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
+                                    <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
+                                </svg>
+                                <span className="ms-3">Transiction History</span>
+                            </a>
+                        </li>
+                      
+                     
+                      
                         <li>
                             <a href="/login" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                 <svg className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
@@ -176,4 +115,4 @@ const UserDashboard = () => {
     );
 };
 
-export default UserDashboard;
+export default AgentDashboard;

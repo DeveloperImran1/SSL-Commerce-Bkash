@@ -8,6 +8,10 @@ import DashboardHome from "../Dashboard/DashboardHome";
 import UserProfile from "../Dashboard/UserRoutes/UserProfile";
 import SendMoney from "../Dashboard/UserRoutes/SendMoney";
 import CashOut from "../Dashboard/UserRoutes/CashOut";
+import CashIn from "../Dashboard/UserRoutes/CashIn";
+import MyBalance from "../Dashboard/UserRoutes/MyBalance";
+import TransictionHistory from "../Dashboard/UserRoutes/TransictionHistory";
+import TransitionHistoryAgent from "../Dashboard/AgentRoutes/TransitionHistoryAgent";
   
 
 const router = createBrowserRouter([
@@ -31,6 +35,22 @@ const router = createBrowserRouter([
             {
               path: "/dashboard/cashout",
               element: <CashOut></CashOut>
+            },
+            {
+              path: "/dashboard/cashin",
+              element: <CashIn></CashIn>
+            },
+            {
+              path: "/dashboard/mybalance",
+              element: <MyBalance></MyBalance>
+            },
+            {
+              path: "/dashboard/history",
+              element: <TransictionHistory></TransictionHistory>
+            },
+            {
+              path: "/dashboard/historyAgent",
+              element: <TransitionHistoryAgent></TransitionHistoryAgent>
             },
 
           ]

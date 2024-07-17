@@ -49,7 +49,6 @@ const ManageUser = () => {
         }
         refetch()
     }
-
     return (
         <div>
             <div className="overflow-x-auto border w-full mx-auto bg-[#1313180D] rounded-xl border-black  ">

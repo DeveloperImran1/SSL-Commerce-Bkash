@@ -26,8 +26,8 @@ const UserDashboard = () => {
     }
     return (
         <div>
-            <div className="text-center cursor-pointer" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
-                <IoReorderThree size={28} className=" " ></IoReorderThree>
+            <div  className="relative text-center cursor-pointer" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+                <IoReorderThree className="fixed top-3 right-3" size={28} ></IoReorderThree>
             </div>
 
 
@@ -45,10 +45,10 @@ const UserDashboard = () => {
                         <Link to='/' className='flex justify-center items-center ' >
                             <img
                                 // className='hidden md:block'
-                                src='https://i.ibb.co/xD2TrVn/z3376104only-T-removebg-preview.png'
+                                src='https://freelogopng.com/images/all_img/1656235223bkash-logo.png'
                                 alt='logo'
-                                width='80'
-                                height='80'
+                                width='50'
+                                height='50'
                             />
                             <h2 className='text-[18px] font-bold hidden lg:flex leading-none dark:text-white' >B<span className='text-[#076aa5]' >Kash</span></h2>
 

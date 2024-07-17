@@ -17,7 +17,7 @@ const Register = () => {
         const phone = form.phone.value;
         const pin = form.pin.value;
 
-        const userInfo = { name, email, phone, pin, role, photo, status: "pending", balance: 0, cashoutRequested: [], cashinRequested: [] };
+        const userInfo = { name, email, phone, pin, role, photo, status: "pending", balance: 0,  };
         console.log(userInfo)
 
         if(!name || !pin || !role || !email || !phone){

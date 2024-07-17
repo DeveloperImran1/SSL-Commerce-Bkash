@@ -12,6 +12,7 @@ import CashIn from "../Dashboard/UserRoutes/CashIn";
 import MyBalance from "../Dashboard/UserRoutes/MyBalance";
 import TransictionHistory from "../Dashboard/UserRoutes/TransictionHistory";
 import TransitionHistoryAgent from "../Dashboard/AgentRoutes/TransitionHistoryAgent";
+import ManageUser from "../Dashboard/AdminRoutes/ManageUser";
   
 
 const router = createBrowserRouter([
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
             {
               path: "/dashboard/historyAgent",
               element: <TransitionHistoryAgent></TransitionHistoryAgent>
+            },
+            {
+              path: "/dashboard/manageUser",
+              element: <ManageUser></ManageUser>
             },
 
           ]

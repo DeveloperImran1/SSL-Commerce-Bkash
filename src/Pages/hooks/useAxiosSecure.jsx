@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const axiosSecure= axios.create({
-    baseURL: "http://localhost:5000"
+    baseURL: "https://bkash-project-server.vercel.app"
 })
 
 const useAxiosSecure = () => {
